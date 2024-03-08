@@ -1,38 +1,36 @@
-﻿using System;
-
-public class Employee
+﻿public class Employee
 {
     private int Id;
     private string Name;
-    private string DeptName;
+    private string DepartmentName;
 
     // Event declaration
-    public event EventHandler MethodCalled;
+    public event EventHandler<string> MethodCalled;
 
-    public Employee(int id, string name, string deptName)
+    public Employee(int id, string name, string departmentName)
     {
         Id = id;
         Name = name;
-        DeptName = deptName;
+        DepartmentName = departmentName;
     }
 
     // Methods to get properties
     public int GetId()
     {
-        MethodCalled?.Invoke(this, EventArgs.Empty); // Invoke event
+        OnMethodCalled(nameof(GetId)); 
         return Id;
     }
 
     public string GetName()
     {
-        MethodCalled?.Invoke(this, EventArgs.Empty); // Invoke event
+        OnMethodCalled(nameof(GetName)); 
         return Name;
     }
 
-    public string GetDeptName()
+    public string GetDepartmentName()
     {
-        MethodCalled?.Invoke(this, EventArgs.Empty); // Invoke event
-        return DeptName;
+        OnMethodCalled(nameof(GetDepartmentName)); 
+        return DepartmentName;
     }
 
     // Overloaded methods to update properties
@@ -46,9 +44,15 @@ public class Employee
         Name = newName;
     }
 
-    public void UpdateDeptName(string newDeptName)
+    public void UpdateDepartmentName(string newDepartmentName)
     {
-        DeptName = newDeptName;
+        DepartmentName = newDepartmentName;
+    }
+
+    // Method to invoke event with method name
+    private void OnMethodCalled(string methodName)
+    {
+        MethodCalled?.Invoke(this, methodName);
     }
 }
 
@@ -62,30 +66,30 @@ class Program
         Console.Write("Name: ");
         string name = Console.ReadLine();
         Console.Write("Department Name: ");
-        string deptName = Console.ReadLine();
+        string departmentName = Console.ReadLine();
 
-        Employee emp = new Employee(id, name, deptName);
+        Employee emp = new Employee(id, name, departmentName);
 
         // Event handler
-        emp.MethodCalled += (sender, e) => Console.WriteLine("\nMethod called in Employee class.");
+        emp.MethodCalled += (sender, methodName) => Console.WriteLine($"\n{methodName}() method called.");
 
-        Console.WriteLine("Employee details:");
+        Console.WriteLine("\nEmployee details:");
         Console.WriteLine("Id: " + emp.GetId());
         Console.WriteLine("Name: " + emp.GetName());
-        Console.WriteLine("Department Name: " + emp.GetDeptName());
+        Console.WriteLine("Department Name: " + emp.GetDepartmentName());
 
         // Update employee details
-        Console.WriteLine("\nEnter new details for updating:");
+        Console.WriteLine("\nEnter new details:");
         Console.Write("New Id: ");
         emp.UpdateId(Convert.ToInt32(Console.ReadLine()));
         Console.Write("New Name: ");
         emp.UpdateName(Console.ReadLine());
         Console.Write("New Department Name: ");
-        emp.UpdateDeptName(Console.ReadLine());
+        emp.UpdateDepartmentName(Console.ReadLine());
 
         Console.WriteLine("\nUpdated Employee details:");
         Console.WriteLine("Id: " + emp.GetId());
         Console.WriteLine("Name: " + emp.GetName());
-        Console.WriteLine("Department Name: " + emp.GetDeptName());
+        Console.WriteLine("Department Name: " + emp.GetDepartmentName());
     }
 }

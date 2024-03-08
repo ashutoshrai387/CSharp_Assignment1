@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\promact\\Desktop\\Project\\Week 2 Task 1\\Assignment1\\Assignment1\\Assignment1.csproj",
+      "projectUniqueName": "C:\\Users\\promact\\Desktop\\Week 6\\CSharp_Assignment1\\Assignment1\\Assignment1.csproj",
       "projectName": "Assignment1",
-      "projectPath": "C:\\Users\\promact\\Desktop\\Project\\Week 2 Task 1\\Assignment1\\Assignment1\\Assignment1.csproj",
+      "projectPath": "C:\\Users\\promact\\Desktop\\Week 6\\CSharp_Assignment1\\Assignment1\\Assignment1.csproj",
       "packagesPath": "C:\\Users\\promact\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\promact\\Desktop\\Project\\Week 2 Task 1\\Assignment1\\Assignment1\\obj\\",
+      "outputPath": "C:\\Users\\promact\\Desktop\\Week 6\\CSharp_Assignment1\\Assignment1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\promact\\AppData\\Roaming\\NuGet\\NuGet.Config",
